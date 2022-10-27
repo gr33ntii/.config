@@ -11,6 +11,7 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server.exe"
 local cmp = require("cmp")
 local source_mapping = {
     buffer = "[Buffer]",
+    cmp_tabnine = "[TabNine]",
     nvim_lsp = "[LSP]",
     nvim_lua = "[Lua]",
     path = "[Path]",
@@ -49,8 +50,6 @@ cmp.setup({
         expand = function(args)
             -- For `luasnip` user.
             require("luasnip").lsp_expand(args.body)
-
-            -- vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -64,6 +63,11 @@ cmp.setup({
         format = function(entry, vim_item)
             local menu = source_mapping[entry.source.name]
             local symbol = symbol_mapping[vim_item.kind]
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    menu = entry.completion_item.data.detail .. " " .. menu
+                end
+            end
             vim_item.menu = menu
             vim_item.kind = symbol
             return vim_item
@@ -71,6 +75,8 @@ cmp.setup({
     },
 
     sources = {
+        { name = "cmp_tabnine" },
+
         { name = "nvim_lsp" },
 
         -- { name = 'vsnip' },

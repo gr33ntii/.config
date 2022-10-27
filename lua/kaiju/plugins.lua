@@ -33,10 +33,6 @@ return require("packer").startup(function(use)
     -- Colorscheme
     use('lu-ren/SerialExperimentsLain')
 
-    -- Primeagen doesn"t create lodash
-    use("ThePrimeagen/refactoring.nvim")
-    use("ThePrimeagen/harpoon")
-
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
     })

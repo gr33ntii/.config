@@ -10,7 +10,6 @@ return require("packer").startup(function(use)
     use("nvim-telescope/telescope.nvim")
 
 
-    -- All the things
     use("neovim/nvim-lspconfig")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
@@ -19,19 +18,17 @@ return require("packer").startup(function(use)
     use({"simrat39/symbols-outline.nvim"})
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
+    use({"nvim-tree/nvim-tree.lua"})
 
+    use({"numToStr/FTerm.nvim"})
     use({"onsails/lspkind.nvim"})
     use({"williamboman/mason.nvim"})
     use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
 
-    use({
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    })
-
     use("xiyaowong/nvim-transparent")
     -- Colorscheme
     use('lu-ren/SerialExperimentsLain')
+    use({"junegunn/seoul256.vim"})
 
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"

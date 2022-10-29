@@ -3,10 +3,8 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
+local tnoremap = Remap.tnoremap
 local nmap = Remap.nmap
-
-nnoremap("<leader>pv", ":Ex<CR>")
-nnoremap("<leader>u", ":UndotreeShow<CR>")
 
 nnoremap("Y", "yg$")
 nnoremap("n", "nzzzv")
@@ -15,12 +13,17 @@ nnoremap("J", "mzJ`z")
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
+--Nvim Tree
+nnoremap("<leader>pv", ":NvimTreeToggle<CR>")
 -- Code Blocks Move
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
 xnoremap("<leader>p", "\"_dP")
+
+nnoremap("<leader>t", ":lua require(\"FTerm\").toggle()<CR>")
+tnoremap("<leader>t", "<C-\\><C-n><CMD>lua require(\"FTerm\").toggle()<CR>")
 
 -- next greatest remap ever : asbjornHaland
 nnoremap("<leader>y", "\"+y")

@@ -45,6 +45,7 @@ local symbol_mapping = {
       TypeParameter = ""
 }
 
+
 cmp.setup({
     snippet = {
         expand = function(args)

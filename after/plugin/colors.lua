@@ -1,23 +1,22 @@
-vim.g.kaiju_colorscheme = "SerialExperimentsLain"
+-- colorscheme list
+vim.g.lain_colorscheme = "SerialExperimentsLain"
+vim.g.seoul256_colorscheme = "seoul256"
 
-require("transparent").setup({
-    enable = true, -- boolean: enable transparent
-    extra_groups = {
-    "BufferLineTabClose",
-    "BufferlineBufferSelected",
-    "BufferLineFill",
-    "BufferLineBackground",
-    "BufferLineSeparator",
-    "BufferLineIndicatorSelected",
-  },
-  exclude = {}, -- table: groups you don't want to clear
-})
+function ColorerizeMyVim()
+    require("transparent").setup({
+        enable = true, -- boolean: enable transparent
+        extra_groups = { -- table/string: additional groups that should be cleared
+        "BufferLineTabClose",
+        "BufferlineBufferSelected",
+        "BufferLineFill",
+        "BufferLineBackground",
+        "BufferLineSeparator",
+        "BufferLineIndicatorSelected",
+    },
+    exclude = {}, -- table: groups you don't want to clear
+    })
 
-function setColorscheme()
-    vim.opt.background = dark
-
-    vim.cmd("colorscheme " .. vim.g.kaiju_colorscheme)
-
+    vim.cmd("colorscheme " .. vim.g.seoul256_colorscheme)
 end
 
-setColorscheme()
+ColorerizeMyVim()

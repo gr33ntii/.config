@@ -9,6 +9,7 @@ vim.cmd 'autocmd FileType sql setlocal noautoindent'
 vim.cmd 'autocmd FileType sql setlocal nosmartindent'
 vim.cmd 'autocmd FileType sql setlocal nocindent'
 vim.cmd 'set signcolumn=no'
+vim.opt.clipboard = 'unnamedplus'
 
 vim.o.scrolloff = 5
 vim.opt.ignorecase = true
@@ -52,6 +53,9 @@ vim.opt.expandtab = true
 vim.bo.softtabstop = 2
 
 -- move selections
+vim.keymap.set('v', '>', '>gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<', '<gv', { noremap = true, silent = true })
+
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv") -- Shift visual selected line down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv") -- Shift visual selected line up
 vim.keymap.set('n', '<leader>t', 'bv~')
@@ -126,8 +130,6 @@ vim.keymap.set('n', 'gr', function()
     })
   end, 0)
 end)
-
-vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
 
 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
 
